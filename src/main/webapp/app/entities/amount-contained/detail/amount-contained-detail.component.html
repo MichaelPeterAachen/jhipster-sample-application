@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="amountContained">
+      <h2 data-cy="amountContainedDetailsHeading"><span jhiTranslate="myApp.amountContained.detail.title">Amount Contained</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ amountContained.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.amountContained.amount">Amount</span></dt>
+        <dd>
+          <span>{{ amountContained.amount }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.amountContained.unit">Unit</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Unit.' + amountContained.unit }}">{{ amountContained.unit }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.amountContained.mineral">Mineral</span></dt>
+        <dd>
+          <div *ngIf="amountContained.mineral">
+            <a [routerLink]="['/mineral', amountContained.mineral.id, 'view']">{{ amountContained.mineral.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="myApp.amountContained.food">Food</span></dt>
+        <dd>
+          <div *ngIf="amountContained.food">
+            <a [routerLink]="['/food', amountContained.food.id, 'view']">{{ amountContained.food.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/amount-contained', amountContained.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
