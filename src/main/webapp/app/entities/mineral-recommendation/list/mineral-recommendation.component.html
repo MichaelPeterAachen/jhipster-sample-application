@@ -1,0 +1,129 @@
+<div>
+  <h2 id="page-heading" data-cy="MineralRecommendationHeading">
+    <span jhiTranslate="myApp.mineralRecommendation.home.title">Mineral Recommendations</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="myApp.mineralRecommendation.home.refreshListLabel">Refresh list</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-mineral-recommendation"
+        [routerLink]="['/mineral-recommendation/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="myApp.mineralRecommendation.home.createLabel"> Create a new Mineral Recommendation </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="mineralRecommendations?.length === 0">
+    <span jhiTranslate="myApp.mineralRecommendation.home.notFound">No Mineral Recommendations found</span>
+  </div>
+
+  <div class="table-responsive table-entities" id="entities" *ngIf="mineralRecommendations && mineralRecommendations.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="navigateToWithComponentValues()">
+          <th scope="col" jhiSortBy="id">
+            <div class="d-flex">
+              <span jhiTranslate="global.field.id">ID</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="minAmount">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.mineralRecommendation.minAmount">Min Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="maxAmount">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.mineralRecommendation.maxAmount">Max Amount</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="unit">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.mineralRecommendation.unit">Unit</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="timePeriodLength">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.mineralRecommendation.timePeriodLength">Time Period Length</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="timePeriodDimension">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.mineralRecommendation.timePeriodDimension">Time Period Dimension</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col" jhiSortBy="mineral.id">
+            <div class="d-flex">
+              <span jhiTranslate="myApp.mineralRecommendation.mineral">Mineral</span>
+              <fa-icon class="p-1" icon="sort"></fa-icon>
+            </div>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let mineralRecommendation of mineralRecommendations; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/mineral-recommendation', mineralRecommendation.id, 'view']">{{ mineralRecommendation.id }}</a>
+          </td>
+          <td>{{ mineralRecommendation.minAmount }}</td>
+          <td>{{ mineralRecommendation.maxAmount }}</td>
+          <td jhiTranslate="{{ 'myApp.Unit.' + mineralRecommendation.unit }}">{{ mineralRecommendation.unit }}</td>
+          <td>{{ mineralRecommendation.timePeriodLength }}</td>
+          <td jhiTranslate="{{ 'myApp.RecommendationPeriodTime.' + mineralRecommendation.timePeriodDimension }}">
+            {{ mineralRecommendation.timePeriodDimension }}
+          </td>
+          <td>
+            <div *ngIf="mineralRecommendation.mineral">
+              <a [routerLink]="['/mineral', mineralRecommendation.mineral.id, 'view']">{{ mineralRecommendation.mineral.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/mineral-recommendation', mineralRecommendation.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/mineral-recommendation', mineralRecommendation.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(mineralRecommendation)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
