@@ -1,0 +1,55 @@
+
+application {
+  config {
+    baseName myApp,
+    applicationType monolith,
+    packageName com.myapp,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    clientFramework angular
+  }
+  entities *
+}
+
+entity Mineral {
+	name String
+}
+
+entity MineralRecommendation {
+	minAmount Float
+    maxAmount Float
+    unit Unit
+    timePeriodLength Long
+    timePeriodDimension RecommendationPeriodTime
+}
+
+enum RecommendationPeriodTime {
+    HOURS, DAYS, WEEKS, MONTHS
+}
+
+enum Unit {
+    MG, G
+}
+
+relationship OneToOne {
+	MineralRecommendation{mineral} to Mineral
+}
+
+// an ignored comment
+/** not an ignored comment */
+entity Food {
+	name String
+}
+
+entity AmountContained {
+	amount Float required
+    unit Unit
+}
+
+relationship ManyToOne {
+	AmountContained{mineral} to Mineral
+}
+
+relationship OneToMany {
+	Food{containedMinerals} to AmountContained
+}
