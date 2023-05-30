@@ -1,0 +1,29 @@
+{
+  "myApp": {
+    "mineralRecommendation": {
+      "home": {
+        "title": "Mineral Recommendations",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Mineral Recommendation",
+        "createOrEditLabel": "Create or edit a Mineral Recommendation",
+        "notFound": "No Mineral Recommendations found"
+      },
+      "created": "A new Mineral Recommendation is created with identifier {{ param }}",
+      "updated": "A Mineral Recommendation is updated with identifier {{ param }}",
+      "deleted": "A Mineral Recommendation is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mineral Recommendation {{ id }}?"
+      },
+      "detail": {
+        "title": "Mineral Recommendation"
+      },
+      "id": "ID",
+      "minAmount": "Min Amount",
+      "maxAmount": "Max Amount",
+      "unit": "Unit",
+      "timePeriodLength": "Time Period Length",
+      "timePeriodDimension": "Time Period Dimension",
+      "mineral": "Mineral"
+    }
+  }
+}

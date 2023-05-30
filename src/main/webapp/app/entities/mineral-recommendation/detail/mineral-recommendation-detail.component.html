@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="mineralRecommendation">
+      <h2 data-cy="mineralRecommendationDetailsHeading">
+        <span jhiTranslate="myApp.mineralRecommendation.detail.title">Mineral Recommendation</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ mineralRecommendation.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.mineralRecommendation.minAmount">Min Amount</span></dt>
+        <dd>
+          <span>{{ mineralRecommendation.minAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.mineralRecommendation.maxAmount">Max Amount</span></dt>
+        <dd>
+          <span>{{ mineralRecommendation.maxAmount }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.mineralRecommendation.unit">Unit</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.Unit.' + mineralRecommendation.unit }}">{{ mineralRecommendation.unit }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.mineralRecommendation.timePeriodLength">Time Period Length</span></dt>
+        <dd>
+          <span>{{ mineralRecommendation.timePeriodLength }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.mineralRecommendation.timePeriodDimension">Time Period Dimension</span></dt>
+        <dd>
+          <span jhiTranslate="{{ 'myApp.RecommendationPeriodTime.' + mineralRecommendation.timePeriodDimension }}">{{
+            mineralRecommendation.timePeriodDimension
+          }}</span>
+        </dd>
+        <dt><span jhiTranslate="myApp.mineralRecommendation.mineral">Mineral</span></dt>
+        <dd>
+          <div *ngIf="mineralRecommendation.mineral">
+            <a [routerLink]="['/mineral', mineralRecommendation.mineral.id, 'view']">{{ mineralRecommendation.mineral.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/mineral-recommendation', mineralRecommendation.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

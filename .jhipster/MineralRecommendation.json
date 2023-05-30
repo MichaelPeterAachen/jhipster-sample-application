@@ -1,0 +1,45 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230530082003",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "mineral_recommendation",
+  "fields": [
+    {
+      "fieldName": "minAmount",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "maxAmount",
+      "fieldType": "Float"
+    },
+    {
+      "fieldName": "unit",
+      "fieldType": "Unit",
+      "fieldValues": "MG,G"
+    },
+    {
+      "fieldName": "timePeriodLength",
+      "fieldType": "Long"
+    },
+    {
+      "fieldName": "timePeriodDimension",
+      "fieldType": "RecommendationPeriodTime",
+      "fieldValues": "HOURS,DAYS,WEEKS,MONTHS"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "MineralRecommendation",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "mineral",
+      "ownerSide": true,
+      "relationshipName": "mineral",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "no"
+}

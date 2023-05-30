@@ -1,0 +1,27 @@
+{
+  "myApp": {
+    "amountContained": {
+      "home": {
+        "title": "Amount Containeds",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Amount Contained",
+        "createOrEditLabel": "Create or edit a Amount Contained",
+        "notFound": "No Amount Containeds found"
+      },
+      "created": "A new Amount Contained is created with identifier {{ param }}",
+      "updated": "A Amount Contained is updated with identifier {{ param }}",
+      "deleted": "A Amount Contained is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Amount Contained {{ id }}?"
+      },
+      "detail": {
+        "title": "Amount Contained"
+      },
+      "id": "ID",
+      "amount": "Amount",
+      "unit": "Unit",
+      "mineral": "Mineral",
+      "food": "Food"
+    }
+  }
+}

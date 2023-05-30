@@ -1,0 +1,28 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230530082004",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "food",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "not an ignored comment",
+  "jpaMetamodelFiltering": false,
+  "name": "Food",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "amountContained",
+      "otherEntityRelationshipName": "food",
+      "relationshipName": "containedMinerals",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "no"
+}

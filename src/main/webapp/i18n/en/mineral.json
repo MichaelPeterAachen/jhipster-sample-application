@@ -1,0 +1,24 @@
+{
+  "myApp": {
+    "mineral": {
+      "home": {
+        "title": "Minerals",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Mineral",
+        "createOrEditLabel": "Create or edit a Mineral",
+        "notFound": "No Minerals found"
+      },
+      "created": "A new Mineral is created with identifier {{ param }}",
+      "updated": "A Mineral is updated with identifier {{ param }}",
+      "deleted": "A Mineral is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Mineral {{ id }}?"
+      },
+      "detail": {
+        "title": "Mineral"
+      },
+      "id": "ID",
+      "name": "Name"
+    }
+  }
+}
