@@ -1,0 +1,11 @@
+{
+  "myApp": {
+    "RecommendationPeriodTime": {
+      "null": "",
+      "HOURS": "HOURS",
+      "DAYS": "DAYS",
+      "WEEKS": "WEEKS",
+      "MONTHS": "MONTHS"
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <!--
+        Added the constraints for entity AmountContained.
+    -->
+    <changeSet id="20230530082005-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="mineral_id"
+                                 baseTableName="amount_contained"
+                                 constraintName="fk_amount_contained__mineral_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="mineral"/>
+
+        <addForeignKeyConstraint baseColumnNames="food_id"
+                                 baseTableName="amount_contained"
+                                 constraintName="fk_amount_contained__food_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="food"/>
+    </changeSet>
+</databaseChangeLog>

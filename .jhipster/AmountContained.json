@@ -1,0 +1,38 @@
+{
+  "applications": ["myApp"],
+  "changelogDate": "20230530082005",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "amount_contained",
+  "fields": [
+    {
+      "fieldName": "amount",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "unit",
+      "fieldType": "Unit",
+      "fieldValues": "MG,G"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "AmountContained",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "mineral",
+      "relationshipName": "mineral",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "food",
+      "otherEntityRelationshipName": "containedMinerals",
+      "relationshipName": "food",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "no"
+}
